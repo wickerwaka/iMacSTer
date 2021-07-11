@@ -1,0 +1,12 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AP2411
+F https://www.diodes.com/assets/Datasheets/AP24x1.pdf
+$ENDCMP
+#
+$CMP FE1.1
+D USB 2.0 HIGH SPEED 4-PORT HUB CONTROLLER
+F https://www.engadget.com/2010-12-29-hackers-obtain-ps3-private-cryptography-key-due-to-epic-programm.html
+$ENDCMP
+#
+#End Doc Library
