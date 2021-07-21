@@ -963,20 +963,11 @@ F 3 "~" H 6350 2950 50  0001 C CNN
 $EndComp
 Connection ~ 6350 2950
 Wire Wire Line
-	6350 2950 6600 2950
-Text GLabel 9000 3150 2    50   Output ~ 0
+	6350 2950 6500 2950
+Text GLabel 6700 2850 2    50   Output ~ 0
 VD5
 Wire Wire Line
 	4000 3300 4800 3300
-Wire Wire Line
-	8850 2950 8850 3150
-Wire Wire Line
-	8850 3150 9000 3150
-Wire Wire Line
-	8550 2950 8850 2950
-Wire Wire Line
-	8850 2950 9000 2950
-Connection ~ 8850 2950
 $Comp
 L USBHub:USB_A_STACKED J1
 U 1 1 613D0FEB
@@ -1111,4 +1102,13 @@ Text Label 3150 6000 0    50   ~ 0
 DU+
 Text Label 3250 6200 0    50   ~ 0
 DU-
+Wire Wire Line
+	6500 2950 6500 2850
+Wire Wire Line
+	6500 2850 6700 2850
+Connection ~ 6500 2950
+Wire Wire Line
+	6500 2950 6600 2950
+Wire Wire Line
+	8550 2950 9000 2950
 $EndSCHEMATC
