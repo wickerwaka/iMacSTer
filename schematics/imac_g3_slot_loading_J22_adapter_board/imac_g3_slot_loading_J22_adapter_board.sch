@@ -222,14 +222,14 @@ Wire Wire Line
 Wire Wire Line
 	1200 2100 1550 2100
 $Comp
-L Connector:Conn_01x04_Male J5
+L Connector:Conn_01x05_Male J5
 U 1 1 60F48977
-P 900 2750
-F 0 "J5" H 1008 3031 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 1008 2940 50  0000 C CNN
-F 2 "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical" H 900 2750 50  0001 C CNN
-F 3 "~" H 900 2750 50  0001 C CNN
-	1    900  2750
+P 900 2850
+F 0 "J5" H 1008 3131 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1000 3250 50  0000 C CNN
+F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 900 2850 50  0001 C CNN
+F 3 "~" H 900 2850 50  0001 C CNN
+	1    900  2850
 	1    0    0    -1  
 $EndComp
 Text Label 1400 2650 0    50   ~ 0
@@ -237,8 +237,8 @@ HEADPHONE_RIGHT
 Text Label 1400 2750 0    50   ~ 0
 HEADPHONE_LEFT
 Text Label 1400 2850 0    50   ~ 0
-HEADPHONE_SENSE
-Text Label 1400 2950 0    50   ~ 0
+HEADPHONE_1_SENSE
+Text Label 1400 3050 0    50   ~ 0
 HEADPHONE_1_&_2_GND
 Wire Wire Line
 	1100 2650 1400 2650
@@ -252,8 +252,6 @@ Text Label 3350 2900 2    50   ~ 0
 HEADPHONE_RIGHT
 Text Label 3350 3250 2    50   ~ 0
 HEADPHONE_LEFT
-Text Label 3350 3600 2    50   ~ 0
-HEADPHONE_SENSE
 Text Label 3550 2900 0    50   ~ 0
 HEADPHONE_2_RIGHT
 Text Label 3550 3000 0    50   ~ 0
@@ -262,10 +260,6 @@ Text Label 3550 3250 0    50   ~ 0
 HEADPHONE_1_LEFT
 Text Label 3550 3350 0    50   ~ 0
 HEADPHONE_2_LEFT
-Text Label 3550 3600 0    50   ~ 0
-HEADPHONE_1_SENSE
-Text Label 3550 3700 0    50   ~ 0
-HEADPHONE_2_SENSE
 Wire Wire Line
 	3350 2900 3500 2900
 Wire Wire Line
@@ -275,15 +269,6 @@ Wire Wire Line
 Connection ~ 3500 2900
 Wire Wire Line
 	3500 2900 3550 2900
-Wire Wire Line
-	3350 3600 3500 3600
-Wire Wire Line
-	3500 3600 3500 3700
-Wire Wire Line
-	3500 3700 3550 3700
-Connection ~ 3500 3600
-Wire Wire Line
-	3500 3600 3550 3600
 Wire Wire Line
 	3350 3250 3500 3250
 Wire Wire Line
@@ -295,4 +280,8 @@ Wire Wire Line
 	3500 3250 3550 3250
 Text Label 8800 4350 2    50   ~ 0
 HEADPHONE_1_&_2_GND
+Wire Wire Line
+	1100 3050 1400 3050
+Text Label 1400 2950 0    50   ~ 0
+HEADPHONE_2_SENSE
 $EndSCHEMATC

@@ -293,50 +293,6 @@ Wire Wire Line
 	5650 5900 5900 5900
 Connection ~ 5650 6150
 $Comp
-L power:+5V #PWR017
-U 1 1 60D318B3
-P 4950 4800
-F 0 "#PWR017" H 4950 4650 50  0001 C CNN
-F 1 "+5V" H 4965 4973 50  0000 C CNN
-F 2 "" H 4950 4800 50  0001 C CNN
-F 3 "" H 4950 4800 50  0001 C CNN
-	1    4950 4800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R2
-U 1 1 60D322F3
-P 4950 4950
-F 0 "R2" H 5020 4996 50  0000 L CNN
-F 1 "100k" H 5020 4905 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4880 4950 50  0001 C CNN
-F 3 "~" H 4950 4950 50  0001 C CNN
-	1    4950 4950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R1
-U 1 1 60D3263B
-P 4550 4950
-F 0 "R1" V 4343 4950 50  0000 C CNN
-F 1 "100k" V 4434 4950 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4480 4950 50  0001 C CNN
-F 3 "~" H 4550 4950 50  0001 C CNN
-	1    4550 4950
-	0    1    1    0   
-$EndComp
-Text GLabel 5150 5100 2    50   Input ~ 0
-SHEAD
-Wire Wire Line
-	4700 4950 4800 4950
-Wire Wire Line
-	4800 4950 4800 5100
-Wire Wire Line
-	4800 5100 4950 5100
-Wire Wire Line
-	4950 5100 5150 5100
-Connection ~ 4950 5100
-$Comp
 L Device:CP1 C1
 U 1 1 60D34847
 P 1500 5650
@@ -371,8 +327,6 @@ VOLUME
 Text GLabel 5900 5700 2    50   Input ~ 0
 AMP_ACTIVE
 Wire Wire Line
-	4400 5100 4650 5100
-Wire Wire Line
 	4400 5250 4600 5250
 Wire Wire Line
 	4600 5250 4600 5450
@@ -395,16 +349,16 @@ RHEAD
 Text GLabel 3400 850  2    50   Output ~ 0
 LHEAD
 Text GLabel 3400 950  2    50   Output ~ 0
-SHEAD
+SHEAD1
 $Comp
 L power:GND #PWR013
 U 1 1 60D3FF2A
-P 3550 1100
-F 0 "#PWR013" H 3550 850 50  0001 C CNN
-F 1 "GND" H 3555 927 50  0000 C CNN
-F 2 "" H 3550 1100 50  0001 C CNN
-F 3 "" H 3550 1100 50  0001 C CNN
-	1    3550 1100
+P 3550 1200
+F 0 "#PWR013" H 3550 950 50  0001 C CNN
+F 1 "GND" H 3555 1027 50  0000 C CNN
+F 2 "" H 3550 1200 50  0001 C CNN
+F 3 "" H 3550 1200 50  0001 C CNN
+	1    3550 1200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -521,8 +475,6 @@ F 3 "" H 4750 5250 50  0001 C CNN
 	1    4750 5250
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4650 5100 4650 5250
 Wire Wire Line
 	4650 5250 4750 5250
 $Comp
@@ -740,10 +692,8 @@ Wire Wire Line
 	10200 700  10350 700 
 NoConn ~ 8850 4000
 NoConn ~ 8850 4100
-NoConn ~ 8850 5300
 NoConn ~ 8850 5500
 NoConn ~ 9850 5100
-NoConn ~ 9850 5000
 NoConn ~ 9850 4600
 NoConn ~ 9850 4300
 NoConn ~ 9850 4200
@@ -1093,7 +1043,6 @@ F 3 "http://www.ixysic.com/home/pdfs.nsf/www/LCC110.pdf/$file/LCC110.pdf" H 7450
 	1    7450 1650
 	1    0    0    -1  
 $EndComp
-NoConn ~ 9850 4900
 $Comp
 L Device:R_Small R9
 U 1 1 610EB687
@@ -1241,20 +1190,18 @@ F 3 "~" H 2500 850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x04_Male J7
+L Connector:Conn_01x05_Male J7
 U 1 1 60F03800
-P 3200 850
-F 0 "J7" H 3308 1131 50  0000 C CNN
-F 1 "Headphones" H 3308 1040 50  0000 C CNN
-F 2 "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical" H 3200 850 50  0001 C CNN
-F 3 "~" H 3200 850 50  0001 C CNN
-	1    3200 850 
+P 3200 950
+F 0 "J7" H 3300 1350 50  0000 C CNN
+F 1 "Headphones" H 3400 1250 50  0000 C CNN
+F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 3200 950 50  0001 C CNN
+F 3 "~" H 3200 950 50  0001 C CNN
+	1    3200 950 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3400 1050 3550 1050
-Wire Wire Line
-	3550 1050 3550 1100
+	3550 1150 3550 1200
 $Comp
 L Connector:Conn_01x05_Male J9
 U 1 1 60F3E743
@@ -1354,4 +1301,110 @@ Wire Wire Line
 	8600 4900 8850 4900
 NoConn ~ 8850 5000
 NoConn ~ 12100 6550
+Wire Wire Line
+	4650 5100 4650 5250
+Wire Wire Line
+	4400 5100 4650 5100
+Wire Wire Line
+	4100 3050 4300 3050
+Text GLabel 4300 3050 2    50   Input ~ 0
+SHEAD1
+$Comp
+L Device:R R1
+U 1 1 60D3263B
+P 3850 3050
+F 0 "R1" V 3643 3050 50  0000 C CNN
+F 1 "100k" V 3734 3050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3780 3050 50  0001 C CNN
+F 3 "~" H 3850 3050 50  0001 C CNN
+	1    3850 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 60D322F3
+P 4100 2900
+F 0 "R2" H 4170 2946 50  0000 L CNN
+F 1 "100k" H 4170 2855 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4030 2900 50  0001 C CNN
+F 3 "~" H 4100 2900 50  0001 C CNN
+	1    4100 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 3050 4100 3050
+Connection ~ 4100 3050
+Wire Wire Line
+	4100 3250 4300 3250
+Text GLabel 4300 3250 2    50   Input ~ 0
+SHEAD2
+$Comp
+L Device:R R10
+U 1 1 61007E6C
+P 3850 3250
+F 0 "R10" V 3643 3250 50  0000 C CNN
+F 1 "100k" V 3734 3250 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 3780 3250 50  0001 C CNN
+F 3 "~" H 3850 3250 50  0001 C CNN
+	1    3850 3250
+	0    1    -1   0   
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 61007E76
+P 4100 3400
+F 0 "R11" H 4170 3446 50  0000 L CNN
+F 1 "100k" H 4170 3355 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 4030 3400 50  0001 C CNN
+F 3 "~" H 4100 3400 50  0001 C CNN
+	1    4100 3400
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	4000 3250 4100 3250
+Connection ~ 4100 3250
+Text GLabel 4550 4950 2    50   Input ~ 0
+AMP_SE
+Wire Wire Line
+	4400 4950 4550 4950
+Wire Wire Line
+	3400 1150 3550 1150
+Text GLabel 3400 1050 2    50   Output ~ 0
+SHEAD2
+Text GLabel 8500 5600 0    50   Output ~ 0
+AMP_SE
+Wire Wire Line
+	8850 5300 8650 5300
+Wire Wire Line
+	8650 5300 8650 5600
+Wire Wire Line
+	8650 5600 8500 5600
+Text GLabel 3600 3050 0    50   Input ~ 0
+~HEAD_DETECT1
+Text GLabel 3600 3250 0    50   Input ~ 0
+~HEAD_DETECT2
+Wire Wire Line
+	3600 3050 3700 3050
+Wire Wire Line
+	3600 3250 3700 3250
+Text GLabel 10000 4950 2    50   Output ~ 0
+~HEAD_DETECT1
+Text GLabel 10000 5100 2    50   Output ~ 0
+~HEAD_DETECT2
+Wire Wire Line
+	9850 4900 9950 4900
+Wire Wire Line
+	9950 4900 9950 4950
+Wire Wire Line
+	9950 4950 10000 4950
+Wire Wire Line
+	9850 5000 9950 5000
+Wire Wire Line
+	9950 5000 9950 5100
+Wire Wire Line
+	9950 5100 10000 5100
+Text GLabel 4100 3550 3    50   Output ~ 0
+5V_MCU
+Text GLabel 4100 2750 1    50   Output ~ 0
+5V_MCU
 $EndSCHEMATC
