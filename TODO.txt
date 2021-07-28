@@ -1,7 +1,13 @@
-Add blocking capacitors
-Test headphone sense
-Replace screw terminals with JST headers
-Split power header into power and front panel (buttons, LEDS)
-Split audio header into speakers and headphones
-Add JST header for MiSTer buttons
-Add button for rotary encoder
+Test larger speaker blocking caps
+Update code for new pin assignments
+Add button code
+
+DONE
+-Add blocking capacitors
+-Test headphone sense
+-Replace screw terminals with JST headers
+-Split power header into power and front panel (buttons, LEDS)
+-Split audio header into speakers and headphones
+-Add JST header for MiSTer buttons
+-Add button for rotary encoder
+
