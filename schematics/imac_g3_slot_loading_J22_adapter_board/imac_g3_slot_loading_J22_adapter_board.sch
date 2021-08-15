@@ -168,7 +168,7 @@ F 1 "AC Power" H 850 2000 50  0000 L CNN
 F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal" H 1000 2200 50  0001 C CNN
 F 3 "https://www.phoenixcontact.com/pxc-oc-itemdetail-pdf-web/eshop?lineItemType=LineItem&UID=1935857" H 1000 2200 50  0001 C CNN
 F 4 "digikey" H 1000 2200 50  0001 C CNN "Vendor"
-F 5 "277-9080-ND" H 1000 2200 50  0001 C CNN "Part#"
+F 5 "277-6405-ND" H 1000 2200 50  0001 C CNN "Part#"
 	1    1000 2200
 	-1   0    0    1   
 $EndComp
@@ -183,6 +183,8 @@ F 0 "J3" H 1008 1231 50  0000 C CNN
 F 1 "Conn_01x04_Male" H 1008 1140 50  0000 C CNN
 F 2 "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical" H 900 950 50  0001 C CNN
 F 3 "~" H 900 950 50  0001 C CNN
+F 4 "digikey" H 900 950 50  0001 C CNN "Vendor"
+F 5 "455-2249-ND" H 900 950 50  0001 C CNN "Part#"
 	1    900  950 
 	1    0    0    -1  
 $EndComp
@@ -206,6 +208,8 @@ F 0 "J4" H 1008 1881 50  0000 C CNN
 F 1 "Conn_01x04_Male" H 1008 1790 50  0000 C CNN
 F 2 "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical" H 900 1600 50  0001 C CNN
 F 3 "~" H 900 1600 50  0001 C CNN
+F 4 "digikey" H 900 1600 50  0001 C CNN "Vendor"
+F 5 "455-2249-ND" H 900 1600 50  0001 C CNN "Part#"
 	1    900  1600
 	1    0    0    -1  
 $EndComp
@@ -221,17 +225,6 @@ Wire Wire Line
 	1200 2200 1550 2200
 Wire Wire Line
 	1200 2100 1550 2100
-$Comp
-L Connector:Conn_01x05_Male J5
-U 1 1 60F48977
-P 900 2850
-F 0 "J5" H 1008 3131 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 1000 3250 50  0000 C CNN
-F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 900 2850 50  0001 C CNN
-F 3 "~" H 900 2850 50  0001 C CNN
-	1    900  2850
-	1    0    0    -1  
-$EndComp
 Text Label 1400 2650 0    50   ~ 0
 HEADPHONE_RIGHT
 Text Label 1400 2750 0    50   ~ 0
@@ -284,4 +277,17 @@ Wire Wire Line
 	1100 3050 1400 3050
 Text Label 1400 2950 0    50   ~ 0
 HEADPHONE_2_SENSE
+$Comp
+L Connector:Conn_01x05_Male J5
+U 1 1 60F48977
+P 900 2850
+F 0 "J5" H 1008 3131 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 1000 3250 50  0000 C CNN
+F 2 "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical" H 900 2850 50  0001 C CNN
+F 3 "~" H 900 2850 50  0001 C CNN
+F 4 "digikey" H 900 2850 50  0001 C CNN "Vendor"
+F 5 "455-2270-ND" H 900 2850 50  0001 C CNN "Part#"
+	1    900  2850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

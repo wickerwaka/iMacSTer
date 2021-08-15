@@ -10,19 +10,40 @@
 #include "ivad.h"
 #include "settings.h"
 
-constexpr uint8_t kPinInRotaryA = 2;
-constexpr uint8_t kPinInRotaryB = 3;
-constexpr uint8_t kPinOutGreenLED = 4;
-constexpr uint8_t kPinOutAmberLED = 5;
-constexpr uint8_t kPinInPowerButton = 6;
-constexpr uint8_t kPinOutAmpActive = 7;
-constexpr uint8_t kPinOutVolume = 9;
+constexpr uint8_t kPinInRotaryA = A7;
+constexpr uint8_t kPinInRotaryB = A6;
+constexpr uint8_t kPinInRotaryButton = 8;
+constexpr uint8_t kPinOutGreenLED = 2;
+constexpr uint8_t kPinOutAmberLED = 3;
+constexpr uint8_t kPinInPowerButton = 4;
+constexpr uint8_t kPinOutMisterReset = 5;
+constexpr uint8_t kPinOutMisterOSD = 6;
+constexpr uint8_t kPinOutMisterUser = 7;
+
+
+constexpr uint8_t kPinOutAmpActive = 12; // MISO
+constexpr uint8_t kPinOutAmpSE = 11; // MOSI
+constexpr uint8_t kPinOutVolume = 10;
 constexpr uint8_t kPinOutSystemPower = A0;
+constexpr uint8_t kPinInHeadDetect1 = A1;
+constexpr uint8_t kPinInHeadDetect2 = A2;
+
+enum class MisterButton
+{
+  Reset = 0,
+  OSD = 1,
+  User = 2
+};
+
+constexpr uint8_t kMisterButtons[3] = { kPinOutMisterReset, kPinOutMisterOSD, kPinOutMisterUser };
+
+static unsigned long misterPressTime[3] = { 0, 0, 0 };
 
 static char serial_command_buffer[32];
 SerialCommands serial_commands(&Serial, serial_command_buffer, sizeof(serial_command_buffer), "\r\n", " ");
 
 static Rotary rotary(kPinInRotaryA, kPinInRotaryB);
+static Button rotaryButton(kPinInRotaryButton);
 static Button powerButton(kPinInPowerButton);
 
 static Setting adjustmentSetting = Setting::Volume;
@@ -32,6 +53,10 @@ static unsigned long lastSettingsStore = 0;
 
 void System_TurnOn();
 void System_TurnOff();
+void System_HandlePowerButton();
+
+void Mister_Press(MisterButton button);
+void Mister_Update();
 
 static void handler_on(SerialCommands *sender)
 {
@@ -139,6 +164,7 @@ void setup()
 
   rotary.begin(true);
   powerButton.begin();
+  rotaryButton.begin();
 
   pinMode(kPinOutGreenLED, OUTPUT);
   digitalWrite(kPinOutGreenLED, LOW);
@@ -152,9 +178,24 @@ void setup()
   pinMode(kPinOutSystemPower, OUTPUT);
   digitalWrite(kPinOutSystemPower, LOW);
 
+  pinMode(kPinInHeadDetect1, INPUT);
+  pinMode(kPinInHeadDetect2, INPUT);
+  pinMode(kPinOutAmpSE, OUTPUT);
+  digitalWrite(kPinOutAmpSE, HIGH);
+
+  pinMode(kPinOutGreenLED, OUTPUT);
+  digitalWrite(kPinOutGreenLED, LOW);
+
+  pinMode(kPinOutAmberLED, OUTPUT);
+  digitalWrite(kPinOutAmberLED, HIGH);
+
   analogWriteFrequency(32); // 32khz pwm
   pinMode(kPinOutVolume, OUTPUT);
   analogWrite(kPinOutVolume, 0);
+
+  pinMode(kPinOutMisterOSD, INPUT);
+  pinMode(kPinOutMisterReset, INPUT);
+  pinMode(kPinOutMisterUser, INPUT);
 
   Settings_Init();
   registerCommands();
@@ -163,22 +204,11 @@ void setup()
 void loop()
 {
   serial_commands.ReadSerial();
-  powerButton.read();
+  rotaryButton.read();
 
-  if( systemOn )
-  {
-    if( powerButton.pressedFor(2000) )
-    {
-      System_TurnOff();
-    }
-  }
-  else
-  {
-    if( powerButton.wasPressed() )
-    {
-      System_TurnOn();
-    }
-  }
+  System_HandlePowerButton();
+
+  Mister_Update();
 
   // Early out if we are powered down
   if( !systemOn )
@@ -186,11 +216,25 @@ void loop()
     return;
   }
 
+  if( rotaryButton.wasPressed() )
+  {
+    Mister_Press(MisterButton::OSD);
+  }
+
   const unsigned long now = millis();
 
   if( ( now - lastSettingsStore ) > 5000 ) {
     Settings_Store();
     lastSettingsStore = now;
+  }
+
+  if( digitalRead( kPinInHeadDetect1 ) || digitalRead( kPinInHeadDetect2 ) )
+  {
+    digitalWrite( kPinOutAmpSE, HIGH );
+  }
+  else
+  {
+    digitalWrite( kPinOutAmpSE, LOW );
   }
 
   const byte rotaryDir = rotary.process();
@@ -213,11 +257,60 @@ void loop()
   analogWrite( kPinOutVolume, volume );
 }
 
+void System_HandlePowerButton()
+{
+  static bool waitForRelease = false;
+  static bool longPress = false;
+
+  powerButton.read();
+
+  if( waitForRelease )
+  {
+    waitForRelease = powerButton.isPressed();
+    return;
+  }
+
+  if( systemOn )
+  {
+    if( powerButton.pressedFor(3000) )
+    {
+      System_TurnOff();
+      waitForRelease = true;
+    }
+    else
+    {
+      if( powerButton.wasReleased() )
+      {
+        if( longPress )
+        {
+          Mister_Press(MisterButton::Reset);
+        }
+        else
+        {
+          Mister_Press(MisterButton::User);
+        }
+      }
+    }
+  }
+  else
+  {
+    if( powerButton.wasPressed() )
+    {
+      System_TurnOn();
+      waitForRelease = true;
+    }
+  }
+
+  longPress = powerButton.pressedFor(500);
+}
+
 void System_TurnOn()
 {
   DEBUG( "Power ON\n" );
   
   digitalWrite(kPinOutSystemPower, HIGH);
+  digitalWrite(kPinOutGreenLED, HIGH);
+  digitalWrite(kPinOutAmberLED, LOW);
   
   delay(250);
   
@@ -235,8 +328,39 @@ void System_TurnOff()
 
   Settings_Store();
 
+  digitalWrite(kPinOutGreenLED, LOW);
+  digitalWrite(kPinOutAmberLED, HIGH);
+
   digitalWrite(kPinOutAmpActive, LOW);
   digitalWrite(kPinOutSystemPower, LOW);
 
   systemOn = false;
+}
+
+void Mister_Press(MisterButton button)
+{
+  DEBUG( "Mister Press: %d\n", button );
+  int button_index = (int)button;
+  misterPressTime[button_index] = millis();
+  pinMode(kMisterButtons[button_index], OUTPUT);
+}
+
+void Mister_Update()
+{
+  unsigned long now = millis();
+
+  for( int i = 0; i < 3; i++ )
+  {
+    if( misterPressTime[i] == 0 )
+    {
+      continue;
+    }
+
+    if( ( now - misterPressTime[i] ) > 50 )
+    {
+      DEBUG( "Mister Release: %d\n", i );
+      misterPressTime[i] = 0;
+      pinMode(kMisterButtons[i], INPUT);
+    }
+  }
 }
