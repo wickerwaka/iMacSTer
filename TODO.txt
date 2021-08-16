@@ -1,8 +1,12 @@
-Test larger speaker blocking caps
-Update code for new pin assignments
-Add button code
+IO Panel with holes for USB ports and rotary encoder.
+Print some plastic standoffs
+Try different mister placement
+
 
 DONE
+-Test larger speaker blocking caps
+-Update code for new pin assignments
+-Add button code
 -Add blocking capacitors
 -Test headphone sense
 -Replace screw terminals with JST headers
