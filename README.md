@@ -51,7 +51,7 @@ The hub includes a current-limited switch, but I have not been able to get the p
 ## MiSTer
 <img src="images/mister.jpeg">
 
-The (MiSTer)[https://github.com/MiSTer-devel/Main_MiSTer/wiki] setup is the standard combo of DE-10 Nano, 128MB SDRAM and the analog IO board. The 5-pin button and I2S headers are connected to the matching headers on the main board. The MiSTer is mounted in the drive bay alongside one of the USB hubs. I drilled and tapped holes in the drive bay to allow both of them to be mounted. This is a destructive modification, though it is not externally visible and does not impact the functionality of the drive bay if the original drives ever needed to be added back in.
+The [MiSTer](https://github.com/MiSTer-devel/Main_MiSTer/wiki) setup is the standard combo of DE-10 Nano, 128MB SDRAM and the analog IO board. The 5-pin button and I2S headers are connected to the matching headers on the main board. The MiSTer is mounted in the drive bay alongside one of the USB hubs. I drilled and tapped holes in the drive bay to allow both of them to be mounted. This is a destructive modification, though it is not externally visible and does not impact the functionality of the drive bay if the original drives ever needed to be added back in.
 
 ## Power and Front Panel
 <img src="images/power.jpeg">
@@ -61,7 +61,7 @@ The power for the system comes from the J22 connector as 24VAC. This 24VAC is fe
 ## IO Shield
 <img src="images/io_shield.jpeg">
 
-The IO shield provides a mounting point for the external USB hub and the rotary encoder. Thanks to the work (here)[https://github.com/Diepzeevogel/iMac-G3-replacement-parts] it matches the curves of the case very closely. It is 3D printed using eSUN's Semi-transparent Gray PETG filament which matches well with the "Graphite" color of this iMac.
+The IO shield provides a mounting point for the external USB hub and the rotary encoder. Thanks to the work [here](https://github.com/Diepzeevogel/iMac-G3-replacement-parts) it matches the curves of the case very closely. It is 3D printed using eSUN's Semi-transparent Gray PETG filament which matches well with the "Graphite" color of this iMac.
 
 The metal plate that the IO shield is attached to has a lot of holes so finding suitable attachment points was not difficult. However getting access to the other side of that metal plate is extremely difficult so I opted to build in some plugs that expand when a bolt is screwed into them, similar to dry wall screws. 
 
