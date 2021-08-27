@@ -40,7 +40,7 @@ constexpr uint8_t kMisterButtons[3] = { kPinOutMisterReset, kPinOutMisterOSD, kP
 static unsigned long misterPressTime[3] = { 0, 0, 0 };
 
 static char serial_command_buffer[32];
-SerialCommands serial_commands(&Serial, serial_command_buffer, sizeof(serial_command_buffer), "\r\n", " ");
+SerialCommands serial_commands(&Serial, serial_command_buffer, sizeof(serial_command_buffer), ";", " ");
 
 static Rotary rotary(kPinInRotaryA, kPinInRotaryB);
 static Button rotaryButton(kPinInRotaryButton);
