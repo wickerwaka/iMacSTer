@@ -1,7 +1,7 @@
 # iMacSTer
 <img src="images/title_image2.jpeg" width="40%">
 
-The iMacSTer is an early 2000's Apple iMac G3 with a MiSTer FPGA multisystem emulator inside of it. It is intended to be a non-destructive modification so the iMac can be returned to it's original state if desired. The mainboard, drives and IO panel are removed and replace by custom hardware, but no cuts are made to the chasis and the new hardware connects to existing internal connections without the need for any soldering. That being said, I can make no guarantees about the long term implications of these modifications. The speakers are being driven by a different amplifier than they were intended for, the new hardware only uses the 5V output from a power supply which is expecting load on the 3.3V and 12V lines also, the monitor is being driven at a resolution higher than it was intended for, heat generation and disipation characteristics have changed, etc, etc.
+The iMacSTer is an early 2000's Apple iMac G3 with a MiSTer FPGA multisystem emulator inside of it. It is intended to be a non-destructive modification so the iMac can be returned to it's original state if desired. The mainboard, drives and IO panel are removed and replace by custom hardware, but no cuts are made to the chassis and the new hardware connects to existing internal connections without the need for any soldering. That being said, I can make no guarantees about the long term implications of these modifications. The speakers are being driven by a different amplifier than they were intended for, the new hardware only uses the 5V output from a power supply which is expecting load on the 3.3V and 12V lines also, the monitor is being driven at a resolution higher than it was intended for, heat generation and dissipation characteristics have changed, etc, etc.
 
 ## Past Work
 None of this would be possible without the work of Rocky Hill and others to reverse engineer the iMac internals and design custom hardware and software to interface with it. I would not have attempted this project if the [imac_g3_ivad_board_init](https://github.com/qbancoffee/imac_g3_ivad_board_init) project did not exist. My PCBs and software is all based on that work and I still use the down converter adaptor board from that project because there was no need to change it.
@@ -19,8 +19,12 @@ I also used the IO shield designs that @Diepzeevogel created as part of their [r
 
 [![Features Video](images/features_thumb.jpeg)](https://www.youtube.com/watch?v=8O5fEVcCo0Q)
 
+
+[Other Random Photos](https://photos.app.goo.gl/XmcNqWLyWzHymW5z9)
+
 ## Assembly
 [![Assembly Video](images/assembly_thumb.jpeg)](https://www.youtube.com/watch?v=OmDPnWWWzPM)
+
 
 ## Main Board
 <img src="images/main_board.jpeg">
@@ -63,4 +67,4 @@ The metal plate that the IO shield is attached to has a lot of holes so finding 
 
 ## Video Modes
 The CRT in the iMac is limited to a horizontal sync of 57-63KHz. The only mode suitable for 60Hz refresh rate is 1280x960. At this resolution the horizontal refresh rate is 1000x the vertical rate so when using `vsync_adjust` the vertical rate can be adjusted from 57-63Hz, which gives good coverage for NTSC and most arcade systems. The brightness and alignment of the screen does change across that frequency range, so at the extremes the picture will be slightly distorted. A future version of the board may sample the hsync signal and adjust the video settings based on it.
-   
+
