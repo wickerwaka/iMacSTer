@@ -25,6 +25,8 @@ I also used the IO shield designs that @Diepzeevogel created as part of their [r
 ## Assembly
 [![Assembly Video](images/assembly_thumb.jpeg)](https://www.youtube.com/watch?v=OmDPnWWWzPM)
 
+<img src="images/overhead.jpeg">
+
 
 ## Main Board
 <img src="images/main_board.jpeg">
@@ -57,6 +59,9 @@ The [MiSTer](https://github.com/MiSTer-devel/Main_MiSTer/wiki) setup is the stan
 <img src="images/power.jpeg">
 
 The power for the system comes from the J22 connector as 24VAC. This 24VAC is feed into the down converter board which outputs 12V, 5V and 3.3V DC. The 5V output is used to power everything else in the system. The J22 connector also has connections for the speakers, headphones, power button and it's LEDs. This are all exposed through three JST connectors on the adaptor board.
+
+<img src="images/wide.jpeg">
+
 
 ## IO Shield
 <img src="images/io_shield.jpeg">
