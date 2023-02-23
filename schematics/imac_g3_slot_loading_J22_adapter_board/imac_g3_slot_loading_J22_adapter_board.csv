@@ -1,0 +1,29 @@
+"Source:","C:\Users\Martin\Source\iMacSTer\schematics\imac_g3_slot_loading_J22_adapter_board\imac_g3_slot_loading_J22_adapter_board.kicad_sch"
+"Date:","2/22/2023 10:14:35 PM"
+"Tool:","Eeschema (6.0.5)"
+"Generator:","C:\Program Files\KiCad\6.0\bin\scripting\plugins/bom_csv_grouped_by_value.py"
+"Component Count:","8"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet","Part#","Vendor"
+"","","H1","MountingHole_Pad","Mechanical:MountingHole_Pad","MountingHole:MountingHole_3.5mm_Pad_Via","~","",""
+"","","J1","Conn_02x13_Odd_Even","Connector_Generic:Conn_02x13_Odd_Even","Connector_PinHeader_2.54mm:PinHeader_2x13_P2.54mm_Vertical","https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/67996.pdf","3M156308-26-ND","digikey"
+"","","J2","AC Power","Connector:Screw_Terminal_01x02","TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal","https://www.phoenixcontact.com/pxc-oc-itemdetail-pdf-web/eshop?lineItemType=LineItem&UID=1935857","277-6405-ND","digikey"
+"","","J3","Conn_01x04_Male","Connector:Conn_01x04_Male","Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical","~","455-2249-ND","digikey"
+"","","J4","Conn_01x04_Male","Connector:Conn_01x04_Male","Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical","~","455-2249-ND","digikey"
+"","","J5","Conn_01x04_Male","Connector:Conn_01x05_Male","Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical","~","455-2270-ND","digikey"
+"","","R1","220","Device:R_Small_US","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","https://www.seielect.com/catalog/sei-cf_cfm.pdf","CF14JT220RCT-ND","digikey"
+"","","R2","220","Device:R_Small_US","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","https://www.seielect.com/catalog/sei-cf_cfm.pdf","CF14JT220RCT-ND","digikey"
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet","Part#","Vendor"
+"1","1","H1","MountingHole_Pad","Mechanical:MountingHole_Pad","MountingHole:MountingHole_3.5mm_Pad_Via","~","",""
+"2","1","J1","Conn_02x13_Odd_Even","Connector_Generic:Conn_02x13_Odd_Even","Connector_PinHeader_2.54mm:PinHeader_2x13_P2.54mm_Vertical","https://cdn.amphenol-icc.com/media/wysiwyg/files/drawing/67996.pdf","3M156308-26-ND","digikey"
+"3","1","J2","AC Power","Connector:Screw_Terminal_01x02","TerminalBlock_Phoenix:TerminalBlock_Phoenix_PT-1,5-2-5.0-H_1x02_P5.00mm_Horizontal","https://www.phoenixcontact.com/pxc-oc-itemdetail-pdf-web/eshop?lineItemType=LineItem&UID=1935857","277-6405-ND","digikey"
+"4","2","J3, J4","Conn_01x04_Male","Connector:Conn_01x04_Male","Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical","~","455-2249-ND","digikey"
+"5","1","J5","Conn_01x04_Male","Connector:Conn_01x05_Male","Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical","~","455-2270-ND","digikey"
+"6","2","R1, R2","220","Device:R_Small_US","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","https://www.seielect.com/catalog/sei-cf_cfm.pdf","CF14JT220RCT-ND","digikey"
